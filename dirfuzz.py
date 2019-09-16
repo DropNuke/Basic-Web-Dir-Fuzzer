@@ -19,7 +19,7 @@ class color:
 header = {'User-Agent':'Mozilla/5.0'}	#Set UserAgent for Requests
 file = "rockyou.txt"	#Wordlist Here
 #file = "wordlist.txt"	#Wordlist Here
-fuzz_url = "https://underc0de.org/"	#url Here
+fuzz_url = "https://example.com/"	#url Here
 
 #----------------------------------------------------------------------------
 
