@@ -17,9 +17,9 @@ class color:
 #----------------------------------------------------------------------------
 
 header = {'User-Agent':'Mozilla/5.0'}	#Set UserAgent for Requests
-file = "rockyou.txt"	#Wordlist Here
-#file = "wordlist.txt"	#Wordlist Here
+file = "wordlist.txt"	#Wordlist Here
 fuzz_url = "https://example.com/"	#url Here
+found_dirs = []
 
 #----------------------------------------------------------------------------
 
@@ -47,7 +47,8 @@ def fuzzing(url, my_wordlist):
 			status = response.status_code #Get the response status code
 
 			if status in range(200, 299): #Verify that the client's request was received successfully
-				print(fuzzing_url + color.green+" ---- Found"+color.reset) 
+				print(fuzzing_url + color.green+" ---- Found"+color.reset)
+				found_dirs.append(fuzzing_url) 
 			else:
 				print(fuzzing_url + color.red+" ---- Not Found"+color.reset)
 
@@ -56,4 +57,8 @@ def fuzzing(url, my_wordlist):
 #fuzzing(url,wordlist)
 if __name__ == "__main__":
 	fuzzing(fuzz_url, file)
+	
+	print("\nDISCOVERED DIRECTORS:")
+	for i in found_dirs:
+		print(i+color.green+" ---- Found"+color.reset)
 
